@@ -1,0 +1,7 @@
+# use dataset tool to convert the folder of training images into zip file (prepare for training)
+python dataset_tool.py --source=./data/celeb+arcane_faces --dest=./data/celeb+arcane_64x64.zip --resolution=64x64
+
+# call the training scripts with specified hyperparameters
+python ./train.py --outdir=./training_runs --cfg=stylegan3-r --data=./celeb+arcane_64x64.zip --gpus=1 --batch=32 --gamma=0.5 --kimg=10000 --tick=1 --snap=10 --cmax=128 --metrics=none
+
+# 
